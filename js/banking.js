@@ -2,8 +2,8 @@
 
 document.getElementById('deposit-button').addEventListener('click', function () {
     // console.log('deposit button is click');
-    const depositInput = document.getElementById('deposit-input').value;
-    const depositInputTotal = parseFloat(depositInput);
+    const depositInput = document.getElementById('deposit-input');
+    const depositInputTotal = parseFloat(depositInput.value);
 
 
     // select depoist before value
@@ -14,6 +14,8 @@ document.getElementById('deposit-button').addEventListener('click', function () 
 
     const depositTotalAmount = parseFloat(depositTotalText);
     depositTotal.innerText = depositTotalAmount + depositInputTotal;
+
+    depositInput.value = '';
 
 
 
