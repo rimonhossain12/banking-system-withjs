@@ -34,33 +34,40 @@ document.getElementById('deposit-button').addEventListener('click', function () 
 // handle in withdraw amount;
 
 document.getElementById('withdraw-button').addEventListener('click', function () {
-    // withdraw-input 
-    const withdrawInput = document.getElementById('withdraw-input');
-    const withdrawInputText = withdrawInput.value;
-    const withdrawInputTotal = parseFloat(withdrawInputText);
+    const depositInputValue = document.getElementById('withdraw-input');
+    const depositInputValueText = depositInputValue.value;
+    if (depositInputValueText < 0) {
+        console.log('invalid');
+        depositInputValue.value = '';
+    } else {
+        // withdraw-input 
+        const withdrawInput = document.getElementById('withdraw-input');
+        const withdrawInputText = withdrawInput.value;
+        const withdrawInputTotal = parseFloat(withdrawInputText);
 
-    console.log('withdraw-input', withdrawInputTotal);
-    // update current balance
-    const currentBalance = document.getElementById('balance-total');
-    const currentBalanceText = currentBalance.innerText;
-    const currentBalanceTotal = parseFloat(currentBalanceText);
-    console.log('balance-total', currentBalanceTotal)
+        console.log('withdraw-input', withdrawInputTotal);
+        // update current balance
+        const currentBalance = document.getElementById('balance-total');
+        const currentBalanceText = currentBalance.innerText;
+        const currentBalanceTotal = parseFloat(currentBalanceText);
+        console.log('balance-total', currentBalanceTotal)
 
-    // withdraw total balance
-    const withdrawTotal = document.getElementById('withdraw-total');
-    const withdrawTotalInput = withdrawTotal.innerText;
-    const withdrawTotalAmount = parseFloat(withdrawTotalInput);
-    console.log('withdraw-total', withdrawTotalAmount);
+        // withdraw total balance
+        const withdrawTotal = document.getElementById('withdraw-total');
+        const withdrawTotalInput = withdrawTotal.innerText;
+        const withdrawTotalAmount = parseFloat(withdrawTotalInput);
+        console.log('withdraw-total', withdrawTotalAmount);
 
-    // if (currentBalanceTotal < withdrawInputTotal && withdrawInputTotal <= 0) {
-    const totalWithdrawBalance = withdrawInputTotal + withdrawTotalAmount;
+        // if (currentBalanceTotal < withdrawInputTotal && withdrawInputTotal <= 0) {
+        const totalWithdrawBalance = withdrawInputTotal + withdrawTotalAmount;
 
-    withdrawTotal.innerText = totalWithdrawBalance;
-    currentBalance.innerText = currentBalanceTotal - withdrawInputTotal;
+        withdrawTotal.innerText = totalWithdrawBalance;
+        currentBalance.innerText = currentBalanceTotal - withdrawInputTotal;
         // clean the input value
 
-    // }
-    withdrawInput.value = '';
+        // }
+        withdrawInput.value = '';
+    }
 
 
 });
